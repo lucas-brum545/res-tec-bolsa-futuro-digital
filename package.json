@@ -1,0 +1,25 @@
+{
+  "name": "res-tec-bolsa-futuro-digital",
+  "version": "1.0.0",
+  "description": "",
+  "homepage": "https://github.com/lucas-brum545/res-tec-bolsa-futuro-digital#readme",
+  "bugs": {
+    "url": "https://github.com/lucas-brum545/res-tec-bolsa-futuro-digital/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lucas-brum545/res-tec-bolsa-futuro-digital.git"
+  },
+  "license": "ISC",
+  "author": "lucas",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "type": "module",
+    "readline-sync": "^1.4.10"
+  },
+  "devDependencies": {}
+}
