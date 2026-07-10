@@ -2,104 +2,104 @@ import leitor from 'readline-sync'
 
 // questao 1
 
-// let nome_usuario = leitor.question('Entre com seu nome: ')
+let nome_usuario = leitor.question('Entre com seu nome: ')
 
-// console.log('Olá, ' + nome_usuario + '! Seja bem vindo(a)!')
+console.log('Olá, ' + nome_usuario + '! Seja bem vindo(a)!')
 
 // questao 2
 
-// let v1 = leitor.question('Entre com o primeiro valor: ')
-// let v2 = leitor.question('Entre com o segundo valor: ')
+let v1 = leitor.question('Entre com o primeiro valor: ')
+let v2 = leitor.question('Entre com o segundo valor: ')
 
-// v1 = Number(v1)
-// v2 = Number(v2)
+v1 = Number(v1)
+v2 = Number(v2)
 
-// let soma = v1+v2
+let soma = v1+v2
 
-// console.log('A soma de ' + v1 + ' e ' + v2 + ' eh ' + soma)
+console.log('A soma de ' + v1 + ' e ' + v2 + ' eh ' + soma)
 
 // questao 3
 
-// let soma = 0
-// let cont = 0
-// const notas_tam = 3
+let soma = 0
+let cont = 0
+const notas_tam = 3
 
-// while(cont < notas_tam){
-//     let nota = Number(leitor.question('Informe uma nota: '))
-//     soma+=nota
-//     cont++
-// }
+while(cont < notas_tam){
+    let nota = Number(leitor.question('Informe uma nota: '))
+    soma+=nota
+    cont++
+}
 
-// let media = soma / notas_tam
+let media = soma / notas_tam
 
-// console.log('Media das notas informadas: ' + media.toFixed(2))
+console.log('Media das notas informadas: ' + media.toFixed(2))
 
 // questao 4
 
-// let num = Number(leitor.question('Digite um numero: '))
+let num = Number(leitor.question('Digite um numero: '))
 
-// if(num % 2 == 0){
-//     console.log('O numero ' + num + ' eh par.')
-// }
-// else{
-//     console.log('O numero ' + num + ' nao eh par.')
-// }
+if(num % 2 == 0){
+    console.log('O numero ' + num + ' eh par.')
+}
+else{
+    console.log('O numero ' + num + ' nao eh par.')
+}
 
 // questao 5
 
-// let idade = Number(leitor.question('Entre com sua idade: '))
+let idade = Number(leitor.question('Entre com sua idade: '))
 
-// if(idade >= 18){
-//     console.log('Voce eh maior de idade.')
-// }
-// else{
-//     console.log('Voce eh menor de idade')
-// }
+if(idade >= 18){
+    console.log('Voce eh maior de idade.')
+}
+else{
+    console.log('Voce eh menor de idade')
+}
 
 // questao 6
 
-// let v1 = Number(leitor.question('Entre com o valor 1: '))
-// let v2 = Number(leitor.question('Entre com o valor 2: '))
-// let op = leitor.question('Entre com a operacao desejada (+, -, *, /): ')
+let v1 = Number(leitor.question('Entre com o valor 1: '))
+let v2 = Number(leitor.question('Entre com o valor 2: '))
+let op = leitor.question('Entre com a operacao desejada (+, -, *, /): ')
 
-// if(op == '+'){
-//     console.log(v1 + '+' + v2 + ' = ' + (v1+v2))
-// }
-// else{
-//     if(op == '-'){
-//         console.log(v1 + '-' + v2 + ' = ' + (v1-v2))
-//     }
-//     else{
-//         if(op == '*'){
-//             console.log(v1 + ' * ' + v2 + ' = ' + (v1*v2))
-//         }
-//         else{
-//             if(op == '/'){
-//                 console.log(v1 + ' / ' + v2 + ' = ' + (v1/v2))
-//             }
-//             else{
-//                 console.log('Operacao invalida!')
-//             }
-//         }
-//     }
-// }
+if(op == '+'){
+    console.log(v1 + '+' + v2 + ' = ' + (v1+v2))
+}
+else{
+    if(op == '-'){
+        console.log(v1 + '-' + v2 + ' = ' + (v1-v2))
+    }
+    else{
+        if(op == '*'){
+            console.log(v1 + ' * ' + v2 + ' = ' + (v1*v2))
+        }
+        else{
+            if(op == '/'){
+                console.log(v1 + ' / ' + v2 + ' = ' + (v1/v2))
+            }
+            else{
+                console.log('Operacao invalida!')
+            }
+        }
+    }
+}
 
 // questao 7
 
-// let v1 = Number(leitor.question('Digite o primeiro valor: '))
-// let v2 = Number(leitor.question('Digite o segundo valor: '))
+let v1 = Number(leitor.question('Digite o primeiro valor: '))
+let v2 = Number(leitor.question('Digite o segundo valor: '))
 
-// if(v1>v2){
-//     console.log(v1 + ' eh maior que ' + v2)
-// }
-// else{
-//     if(v2>v1){
-//         console.log(v2 + ' eh maior que ' + v1)
-//     }
-//     else{
-//         console.log('Os dois numeros sao iguais. ')
-//     }
-// }
+if(v1>v2){
+    console.log(v1 + ' eh maior que ' + v2)
+}
+else{
+    if(v2>v1){
+        console.log(v2 + ' eh maior que ' + v1)
+    }
+    else{
+        console.log('Os dois numeros sao iguais. ')
+    }
+}
 
 // questao 8
 
@@ -113,4 +113,33 @@ if(media >= 7){
 }
 else{
     console.log('Reprovado')
+}
+
+// questão 9
+
+const usuarioCorreto = "admin";
+const senhaCorreto = "1234";
+let usuario;
+let senha;
+
+usuario = leitor.question("Digite o usuario: ");
+senha = leitor.question("Digite a senha: ");
+
+if (usuario == usuarioCorreto && senha == senhaCorreto) {
+  console.log("Acesso autorizado");
+} else {
+  console.log("Acesso negado");
+}
+
+// questão 10
+
+const numeroSecreto = 7
+
+let palpite = Number(leitor.question("Informe um numero: "))
+
+if(palpite == numeroSecreto){
+  console.log("Acertou!")
+}
+else{
+  console.log("Errou! O numero era " + numeroSecreto)
 }
