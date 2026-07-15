@@ -26,8 +26,8 @@ import { calculadora, lerNumero } from './funcoes.js'
 
 // console.log("Resultado de " + v1 + operacao + v2 + " = " + resultado)
 
-let valor1 = lerNumero('Digite o valor 1')
-let valor2 = lerNumero('Digite o valor 2')
-let op = leitor.question('Digite a operacao desejada (+, -, *, /)')
+let valor1 = lerNumero('Digite o valor 1: ')
+let valor2 = lerNumero('Digite o valor 2: ')
+let op = leitor.question('Digite a operacao desejada (+, -, *, /): ')
 let resultado = calculadora(op,valor1,valor2)
 console.log("Resultado de " + valor1 + op + valor2 + " = " + resultado)
