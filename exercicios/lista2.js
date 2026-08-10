@@ -118,22 +118,127 @@ import leitor from 'readline-sync'
 // Maior número digitado
 // Peça números até o usuário digitar 0. Mostre qual foi o maior número digitado.
 
-let num
+// let num
+// let numeros = []
+
+// while(num!=0){
+//     num = leitor.question('Digite um numero: ')
+//     if(num!=0){
+//         numeros.push(num)
+//     }
+// }
+
+// let maior = numeros[0]
+
+// for(let i = 0; i < numeros.length; i++){
+//     if(numeros[i] > maior){
+//         maior = numeros[i]
+//     }
+// }
+
+// console.log('Maior numero digitado: ' + maior)
+
+
+// Contagem crescente
+// Peça um número N e conte de 1 até N com while, mostrando cada número.
+
+// let num = Number(leitor.question('Entre com um numero: '))
+// let i = 1
+
+// while(i <= num){
+//     console.log(i)
+//     i++
+// }
+
+// Somar apenas positivos
+// Vá pedindo números e somando apenas os positivos. Pare quando digitar 0. Mostre a soma dos positivos.
+
+// let somaPositivos = 0
+// let num
+
+// while(num != 0){
+//     num = Number(leitor.question('Entre com um numero: (0 para sair)'))
+//     if(num > 0){
+//         somaPositivos+=num
+//     }
+// }
+
+// console.log('Soma dos numeros positivos digitados: ' + somaPositivos)
+
+// Entrada validada (nota 0 a 10)
+// Peça uma nota. Enquanto estiver fora do intervalo [0, 10], continue pedindo. Ao final, mostre a nota válida.
+
+// let nota
+
+// do{
+//     nota = Number(leitor.question('Entre com a nota: '))
+// }while(nota<0 || nota>10)
+
+// console.log('Nota: ' + nota)
+
+// Calculadora em loop
+// Enquanto o usuário não digitar “sair”, peça dois números e uma operação + - * /. Use if para calcular e alert para mostrar.
+
+// let val1, val2, op
+
+// while(op!=='sair'){
+//     val1 = Number(leitor.question('Entre com o primeiro valor: '))
+//     val2 = Number(leitor.question('Entre com o segundo valor: '))
+//     op = leitor.question('Entre com a opcao desejada (+,-,*,/ ou sair: ')
+
+//     if(op == '+'){
+//         console.log('Soma de ' + val1 + ' e ' + val2 + ' = ' + val1+val2)
+//     }
+//     else if(op == '-'){
+//         console.log('Subtracao de ' + val1 + ' e ' + val2 + ' = ' + (val1-val2))
+//     }
+//     else if(op == '*'){
+//         console.log('Multiplicacao de ' + val1 + ' e ' + val2 + ' = ' + val1*val2)
+//     }
+//     else if(op == '/'){
+//         console.log('Divisao de ' + val1 + ' e ' + val2 + ' = ' + val1/val2)
+//     }
+//     else if(op == 'sair'){
+//         console.log('Obrigado!')
+//     }
+//     else{
+//         console.log('Operacao invalida! Tente novamente!')
+//     }
+// }
+
+// Múltiplos de X até um limite
+// Peça um número base X e um limite L. Liste todos os múltiplos de X até L com while.
+
+let x = Number(leitor.question('Entre com um numero base: '))
+let l = Number(leitor.question('Entre com um numero limite: '))
+
+for(let i = 0; i <= l; i=i+x){
+    console.log(i)
+}
+
+// Contar pares e ímpares
+// Peça números até digitar 0. No fim, mostre quantos eram pares e quantos ímpares
+
+let contImpares = 0
+let contPares = 0
 let numeros = []
+let num
 
 while(num!=0){
-    num = leitor.question('Digite um numero: ')
-    if(num!=0){
-        numeros.push(num)
-    }
+    num = Number(leitor.question('Entre com um numero (0 para sair): '))
+    numeros.push(num)
 }
 
-let maior = numeros[0]
 
-for(let i = 0; i < numeros.length; i++){
-    if(numeros[i] > maior){
-        maior = numeros[i]
-    }
+// Maior e menor
+// Peça números até 0. No final, mostre maior e menor valores digitados (desconsidere o 0)
+
+
+let num
+
+while(num!=0){
+    num = Number(leitor.question('Entre com um numero (0 para sair): '))
+    numeros.push(num)
 }
 
-console.log('Maior numero digitado: ' + maior)
+let numeros = []
