@@ -1,26 +1,41 @@
 import { useState } from "react" // hook
 
-
 export default function Questao(props){
-    const [resultado, setResultado] = useState("")
+    const [respostaUsuario, setRespostaUsuario] = useState(null); // ESTADO: toda vez que um componente é renderizado
 
     function verificarResposta(respostaUsuario){
-        if(props.resposta == respostaUsuario){
-            setResultado("acertou!")
-        }
-        else{
-            setResultado("errou!")
-        }
+        let acertos = 0
+        setRespostaUsuario(respostaUsuario)
+        let acertou = respostaUsuario===props.resposta
+        props.onRespondeu(acertou)
+    }
+    
+
+    let desativar = respostaUsuario != null
+    let textoResultado = ""
+
+    if(respostaUsuario==props.resposta){
+        textoResultado="Acertou!"
     }
 
-    let desativar = resultado != ""
+    else if(respostaUsuario!=null){
+        textoResultado="Errou!"
+    }
+
+    let botaoSim = null
+    let botaoNao = null
+
+    botaoSim = (respostaUsuario===null || respostaUsuario=='sim')?<button disabled={desativar} onClick={() => verificarResposta("não")}>Sim</button>:null
+    botaoNao = (respostaUsuario===null || respostaUsuario=='não')?<button disabled={desativar} onClick={() => verificarResposta("sim")}>Não</button>:null
+
+
 
     return <>
         <div>
             {props.pergunta}
-            <button disabled={desativar} onClick={() => verificarResposta("sim")}>Sim</button>
-            <button disabled={desativar} onClick={() => verificarResposta("não")}>Não</button>
-            {resultado}
+            {botaoSim}
+            {botaoNao}
+            {textoResultado}
         </div>
     </>
 }

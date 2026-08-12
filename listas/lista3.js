@@ -67,19 +67,34 @@ import leitor from 'readline-sync'
 
 // questao 6
 
-const tam = 10
-let listaNumeros = []
+// const tam = 10
+// let listaNumeros = []
 
-for(let i=0;i<tam;i++){
-    let numero = leitor.question('Entre com um numero: ')
-    listaNumeros.push(numero)
+// for(let i=0;i<tam;i++){
+//     let numero = leitor.question('Entre com um numero: ')
+//     listaNumeros.push(numero)
+// }
+
+// let numeroAlvo = leitor.question('Insira um numero para procurar: ')
+
+// if(listaNumeros.includes(numeroAlvo)){
+//     console.log('Ultima posicao de ' + numeroAlvo + ' na lista eh ' + listaNumeros.lastIndexOf(numeroAlvo))
+// }
+// else{
+//     console.log('Numero nao encontrado.')
+// }
+
+// questao 7
+
+let array = []
+let num
+
+for(let i = 0; i < 6; i++){
+    num = Number(leitor.question('Entre com um numero: '))
+    array.push(num)
 }
 
-let numeroAlvo = leitor.question('Insira um numero para procurar: ')
+array.shift()
+array.pop()
 
-if(listaNumeros.includes(numeroAlvo)){
-    console.log('Ultima posicao de ' + numeroAlvo + ' na lista eh ' + listaNumeros.lastIndexOf(numeroAlvo))
-}
-else{
-    console.log('Numero nao encontrado.')
-}
+console.log('Array depois do shift e pop: ' + array)
