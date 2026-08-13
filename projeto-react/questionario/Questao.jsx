@@ -25,10 +25,8 @@ export default function Questao(props){
     let botaoSim = null
     let botaoNao = null
 
-    botaoSim = (respostaUsuario===null || respostaUsuario=='sim')?<button disabled={desativar} onClick={() => verificarResposta("não")}>Sim</button>:null
-    botaoNao = (respostaUsuario===null || respostaUsuario=='não')?<button disabled={desativar} onClick={() => verificarResposta("sim")}>Não</button>:null
-
-
+    botaoSim = (respostaUsuario===null || respostaUsuario=='sim')?<button disabled={desativar} onClick={() => verificarResposta("sim")}>Sim</button>:null
+    botaoNao = (respostaUsuario===null || respostaUsuario=='não')?<button disabled={desativar} onClick={() => verificarResposta("não")}>Não</button>:null
 
     return <>
         <div>
