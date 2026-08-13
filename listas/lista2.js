@@ -209,36 +209,109 @@ import leitor from 'readline-sync'
 // Múltiplos de X até um limite
 // Peça um número base X e um limite L. Liste todos os múltiplos de X até L com while.
 
-let x = Number(leitor.question('Entre com um numero base: '))
-let l = Number(leitor.question('Entre com um numero limite: '))
+// let x = Number(leitor.question('Entre com um numero base: '))
+// let l = Number(leitor.question('Entre com um numero limite: '))
 
-for(let i = 0; i <= l; i=i+x){
-    console.log(i)
-}
+// for(let i = 0; i <= l; i=i+x){
+//     console.log(i)
+// }
 
-// Contar pares e ímpares
-// Peça números até digitar 0. No fim, mostre quantos eram pares e quantos ímpares
+// // Contar pares e ímpares
+// // Peça números até digitar 0. No fim, mostre quantos eram pares e quantos ímpares
 
-let contImpares = 0
-let contPares = 0
-let numeros = []
-let num
+// let contImpares = 0
+// let contPares = 0
+// let numeros = []
+// let num
 
-while(num!=0){
-    num = Number(leitor.question('Entre com um numero (0 para sair): '))
-    numeros.push(num)
-}
+// while(num!=0){
+//     num = Number(leitor.question('Entre com um numero (0 para sair): '))
+//     numeros.push(num)
+// }
 
 
 // Maior e menor
 // Peça números até 0. No final, mostre maior e menor valores digitados (desconsidere o 0)
 
+// let num
+// let numeros = []
 
-let num
+// while(num!=0){
+//     num = Number(leitor.question('Entre com um numero (0 para sair): '))
+//     if (num != 0) { numeros.push(num) }
+// }
 
-while(num!=0){
-    num = Number(leitor.question('Entre com um numero (0 para sair): '))
-    numeros.push(num)
+// // rotina que encontra os valores maior e o menor no vetor
+
+// let maior = numeros[0]
+// let menor = numeros[0]
+
+// for (let i = 0; i < numeros.length; i++){
+//     if (numeros[i] > maior) {
+//         maior = numeros[i]
+//     }
+//     if (numeros[i] < menor) {
+//         menor = numeros[i]
+//     }
+// }
+
+// console.log("Maior numero digitado: " + maior)
+// console.log("Menor numero digitado: " + menor)
+
+// Adivinha com dica
+// Número secreto fixo. Enquanto errar, diga se o palpite é maior ou menor que o segredo. Quando acertar, mostre quantas tentativas foram necessárias.
+
+// const numeroSecreto = 13
+// let numTentativas = 0
+// let acertou = false
+
+// while (!acertou) {
+//     let numeroUsuario = Number(leitor.question('Entre com um numero: '))
+
+//     if (numeroSecreto === numeroUsuario) {
+//         acertou = true
+//         console.log('Parabéns! Voce acertou! Numero de tentativas: ' + numTentativas)
+//     }
+//     else if (numeroSecreto > numeroUsuario) {
+//         console.log('O numero secreto é MAIOR que ' + numeroUsuario)
+//         numTentativas++
+//     }
+//     else if (numeroSecreto < numeroUsuario) {
+//         console.log('O numero secreto é MENOR que ' + numeroUsuario)
+//         numTentativas++
+//     }
+// }
+
+// Somatório de 1 até N
+// Peça N e calcule a soma 1 + 2 + ... + N usando while. Mostre o resultado.
+
+// let soma = 0
+// let numeroN = leitor.question('Entre com um numero N: ')
+
+// for (let i = 1; i <= numeroN; i++){
+//     soma+=i
+// }
+
+// console.log('Soma total de 1 até ' + numeroN + ': ' + soma)
+
+// Tabela °C → °F
+// Peça um número N. De 1 até N, mostre uma tabelinha com o valor em °C e sua conversão para °F (F = C * 9/5 + 32) usando while.
+
+let numeroN = leitor.question('Entre com um numero N: ')
+
+let temperaturasC = []
+let temperaturasF = []
+let index = 1
+
+while (index <= numeroN) {
+    let tempCelsius = Number(leitor.question('Entre com uma temperatura em grau celsius: '))
+    temperaturasC.push(tempCelsius)
+    let tempFarenheit = tempCelsius * (9 / 5) + 32
+    temperaturasF.push(tempFarenheit)
+    index++
 }
 
-let numeros = []
+console.log('| C°  ||  F° |')
+for (let i = 0; i < temperaturasC.length; i++){
+    console.log('| ' + temperaturasC[i] + '  ||  ' + temperaturasF[i] + ' |')
+}
