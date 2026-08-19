@@ -1,0 +1,24 @@
+5   6
+10  x
+
+5x = 60
+
+
+Se um livro custa R$ 80,00 e está com 25% de desconto, qual o valor final?
+Qual é a probabilidade de se obter um número ímpar ao lançar um dado comum?
+Se um triângulo equilátero tem todos os lados iguais a 6 cm, qual é o perímetro?
+Se todos os professores são leitores e alguns leitores são poetas, podemos afirmar que:
+Questão 17
+Resposta
+
+a.
+Todos os professores são poetas
+
+b.
+Alguns professores podem ser poetas
+
+c.
+Todos os poetas são professores
+
+d.
+Nenhum professor é poeta
