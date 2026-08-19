@@ -1,5 +1,6 @@
 import { useState } from "react"
 import Questao from "../questionario/Questao"
+import QuestaoMultipla from "./QuestaoMultipla"
 
 export default function Questionario(props){
     const [acertos,setAcertos] = useState(0)
@@ -23,7 +24,7 @@ export default function Questionario(props){
             resposta={item.resposta?"sim":"não"}
             onRespondeu={respondeu}
         />
-        )
+    )
 
     
     let condicaoParabens = (acertos>=7 && respondidos == 10)?<h2>{mensagemParabens}</h2>:""
@@ -41,14 +42,22 @@ export default function Questionario(props){
     return <>
         <center>
         <h1>Quiz</h1>
-        {condicaoMudancaTela}
+        {/* {condicaoMudancaTela} */}
         <br />
         </center>
+        <QuestaoMultipla
+            pergunta="Qual é a capital do Brasil?"
+            opcoes={["São Paulo", "Brasília", "Rio de Janeiro", "Salvador"]}
+            resposta="Brasília"
+            onRespondeu={(acertou) => {
+                console.log(acertou);
+            }}
+            />
         {/* <h2>Acertos: {acertos}<br></br>
         Erros: {erros}<br></br>
         Respondidas: {respondidos}</h2><br></br> */}
-        {botaoMenos}
-        {valor}
-        {botaoMais}
+        {/* {botaoMenos} */}
+        {/* {valor} */}
+        {/* {botaoMais} */}
     </>
 }

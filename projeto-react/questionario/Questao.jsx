@@ -4,13 +4,11 @@ export default function Questao(props){
     const [respostaUsuario, setRespostaUsuario] = useState(null); // ESTADO: toda vez que um componente é renderizado
 
     function verificarResposta(respostaUsuario){
-        let acertos = 0
         setRespostaUsuario(respostaUsuario)
         let acertou = respostaUsuario===props.resposta
         props.onRespondeu(acertou)
     }
     
-
     let desativar = respostaUsuario != null
     let textoResultado = ""
 
