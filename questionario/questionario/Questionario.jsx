@@ -7,39 +7,36 @@ export default function Questionario(props){
     
 
     function respondeu(acertou){
-        if(acertou){
-            setAcertos(acertos+1)
-        }
-        else{
-            setErros(erros+1)
-        }
+         if(acertou){
+             setAcertos(acertos+1)
+         }
+         else{
+             setErros(erros+1)
+         }
     }
     
     let respondidos = acertos + erros
     let nota = (acertos / props.perguntas.length) * 10
 
-//     Exemplo de resultado (em html):
+    let questaoMultipla = props.perguntas.map(pergunta => <QuestaoMultipla
+            perguntas={pergunta.pergunta}
+            opcoes={pergunta.opcoes}
+            resposta={pergunta.resposta}
+            onRespondeu={respondeu}
+        />)
 
-// Resultado do Questionário
-
-// Acertos: 8 de 10
-// Nota: 8,0
-// Situação: Aprovado
-
-    let relatorio_resultado = <div>
+    let relatorioResultado = <div>
         <h2>Resultado do Questionário</h2>
         <p>Acertos: {acertos} de {props.perguntas.length}</p>
         <p>Nota: {nota.toFixed(1)}</p>
         <p>Situação: {nota >= 7 ? "Aprovado" : "Reprovado"}</p>
     </div>
-    
+
+    let condicaoMudancaTela = (respondidos!=10)?questaoMultipla:relatorioResultado
+
     return <>
-        <center>
-        <h1>Quiz</h1>
+        <h1><strong>QUIZ</strong></h1>
         <br />
-        </center>
-        <QuestaoMultipla
-            perguntas={props.perguntas}
-        />
+        {condicaoMudancaTela}
     </>
 }
