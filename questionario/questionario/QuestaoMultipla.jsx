@@ -45,7 +45,8 @@ export default function QuestaoMultipla(props){
     let desativar = respostaUsuario !== null
 
     let opcoes = props.opcoes.map((opcao) =>
-        (respostaUsuario===null || respostaUsuario===opcao)?<button disabled={desativar} onClick={() => respondeu(opcao)}><strong>{opcao}</strong></button>:<button disabled onClick={() => respondeu(opcao)}>{opcao}</button>
+        // nao mostrar na tela os botoes que o usuario nao clicou, caso ele ja tenha clicado em algum
+        (respostaUsuario===null || respostaUsuario===opcao)?<button disabled={desativar} onClick={() => respondeu(opcao)}><strong>{opcao}</strong></button>:""   
     )
 
     return <>
