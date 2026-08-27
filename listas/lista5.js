@@ -171,7 +171,7 @@
 
 // questao 12
 
-// const produtos = [
+// let produtos = [
 //   { nome: "Notebook", valor: 2500, quantidadeEmEstoque: 10 },
 //   { nome: "Celular",  valor: 1500, quantidadeEmEstoque: 0 },
 //   { nome: "Monitor",  valor: 800,  quantidadeEmEstoque: 5 },
@@ -220,39 +220,124 @@
 
 // questao 15
 
-const alunos = [
-  { nome: "João",  nota: 5.5 },
-  { nome: "Maria", nota: 6.8 },
-  { nome: "Pedro", nota: 7.2 },
-  { nome: "Ana",   nota: 9.0 }
+// const alunos = [
+//   { nome: "João",  nota: 5.5 },
+//   { nome: "Maria", nota: 6.8 },
+//   { nome: "Pedro", nota: 7.2 },
+//   { nome: "Ana",   nota: 9.0 }
+// ];
+
+// const alunoNotaMaiorQue7 = alunos.find(aluno => aluno.nota >= 7)
+
+// console.log('Alunos', alunos)
+// console.log('Primeiro aluno que tirou nota maior ou igual a 7: ', alunoNotaMaiorQue7)
+
+// // questao 16
+
+// function ordenaPalavras(arr) {
+//     arr.sort()
+// }
+
+// let palavras3 = ["Maria", "Ana", "João", "Bruna"]
+
+// console.log('Palavras de entrada: ' + palavras3)
+// ordenaPalavras(palavras3)
+// console.log('Palavras em ordem alfabetica: ' + palavras3)
+
+// // questao 17
+
+// produtos = [
+//   { nome: "Teclado", preco: 100 },
+//   { nome: "Mouse",   preco: 50 },
+//   { nome: "Monitor", preco: 800 },
+//   { nome: "Notebook",preco: 2500 }
+// ];
+
+// console.log('Produtos: ', produtos)
+// // Dado um array de produtos com propriedades nome e preco, use sort para ordenar os produtos do mais barato para o mais caro
+// console.log('Produtos ordenados do mais barato ao mais caro: ', (produtos.sort((a, b) => a.preco - b.preco)))
+
+// questao 18
+
+// let array5 = [10, 25, 60, 40, 80]
+
+// let indice = array5.findIndex(n => n > 50)
+
+// console.log('Array de entrada: ' + array5)
+// console.log('Indice no array do primeiro valor maior que 50: ' + indice)
+
+// questao 19
+
+let produtos = [
+  { nome: "Caderno", estoque: 5 },
+  { nome: "Caneta",  estoque: 0 },
+  { nome: "Borracha",estoque: 2 }
 ];
 
-const alunoNotaMaiorQue7 = alunos.find(aluno => aluno.nota >= 7)
-
-console.log('Alunos', alunos)
-console.log('Primeiro aluno que tirou nota maior ou igual a 7: ', alunoNotaMaiorQue7)
-
-// questao 16
-
-function ordenaPalavras(arr) {
-    arr.sort()
-}
-
-let palavras3 = ["Maria", "Ana", "João", "Bruna"]
-
-console.log('Palavras de entrada: ' + palavras3)
-ordenaPalavras(palavras3)
-console.log('Palavras em ordem alfabetica: ' + palavras3)
-
-// questao 17
-
-const produtos = [
-  { nome: "Teclado", preco: 100 },
-  { nome: "Mouse",   preco: 50 },
-  { nome: "Monitor", preco: 800 },
-  { nome: "Notebook",preco: 2500 }
-];
+let indice = produtos.findIndex(p => p.estoque == 0)
 
 console.log('Produtos: ', produtos)
-// Dado um array de produtos com propriedades nome e preco, use sort para ordenar os produtos do mais barato para o mais caro
-console.log('Produtos ordenados do mais barato ao mais caro: ', (produtos.sort((a, b) => a.preco - b.preco)))
+console.log('Indice do primeiro produto com estoque igual a 0: ' + indice)
+
+// questao 20
+
+function montaFrase(arr) {
+  let frase = arr.join(' ')
+  return frase
+}
+
+let palavras4 = ["Eu", "gosto", "de", "JavaScript"]
+
+console.log('Array de palavras: ' + palavras4)
+console.log('Frase formada a partir do array de palavras: ' + montaFrase(palavras4))
+
+// questao 21
+
+function montaCodigo(arr) {
+  let codigo = arr.join('-')
+  return codigo
+}
+
+let partesCodigo = ["PROD", "2025", "XYZ"]
+
+console.log('Partes do codigo: ' + partesCodigo)
+console.log('Codigo montado: ' + montaCodigo(partesCodigo))
+
+// questao 22
+
+produtos = [
+  { nome: "Notebook", valor: 2500, quantidadeEmEstoque: 10 },
+  { nome: "Celular",  valor: 1500, quantidadeEmEstoque: 0 },
+  { nome: "Monitor",  valor: 800,  quantidadeEmEstoque: 5 },
+  { nome: "Mouse",    valor: 50,   quantidadeEmEstoque: 20 }
+];
+
+function produtoMaisCaro(arr) {
+  let produtosDisponiveis = arr.filter(p => p.quantidadeEmEstoque > 0)
+  produtosDisponiveis.sort((a, b) => a.valor - b.valor)
+  return produtosDisponiveis[produtosDisponiveis.length-1]
+}
+
+console.log('Produtos: ', produtos)
+console.log('Produto mais caro: ', produtoMaisCaro(produtos))
+
+
+// questao 23
+
+const alunos = [
+  { nome: "João",  nota: 6.5 },
+  { nome: "Maria", nota: 8.0 },
+  { nome: "Ana",   nota: 9.5 },
+  { nome: "Pedro", nota: 5.0 }
+];
+
+function alunosAprovados(arr) {
+  let alunosAprovados = arr.filter(a => a.nota >= 7)
+  alunosAprovados.sort()
+  let nomesAlunosAprovados = alunosAprovados.map(a => a.nome)
+  let nomes = nomesAlunosAprovados.join(', ')
+  return nomes
+}
+
+console.log('Alunos: ', alunos)
+console.log('Alunos aprovados em ordem alfabetica: ' + alunosAprovados(alunos))
