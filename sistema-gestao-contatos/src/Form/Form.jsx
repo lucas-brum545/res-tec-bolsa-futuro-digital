@@ -19,15 +19,27 @@ export default function Form(props) {
         novosTelefones[indice] = novoValor
         setTelefones(novosTelefones)
     }
+    function removerTelefone(indiceExcluir){
+        let novosTelefones = telefones.filter(
+            function(valorElemento, indice){
+                return indice!=indiceExcluir
+            }
+        )
+        setTelefones(novosTelefones)
+    }
 
     function enviar(){
         let contato = {
             nome: nome,
             email: email,
-            telefone:telefones
+            telefones:telefones
         }
-
+        
         console.log(contato)
+        props.onEnviar(contato)
+        setNome("")
+        setEmail("")
+        setTelefones([])
     }
 
     return (
@@ -58,15 +70,22 @@ export default function Form(props) {
                     <br />
                 </div>
                 <div>
-                    <label htmlFor="telefone">Telefones: 
+                    <label htmlFor="telefone">
+                        Telefones: 
                         {telefones.map((telefone, indice)=><>
-                        <br /><input value={telefone} onChange={evento=>alterarTelefone(indice, evento.target.value)}></input></>)}
-                        <button type="button" onClick={adicionarTelefone}>➕</button></label>
+                        <br /> 
+                        <input 
+                            value={telefone}
+                            onChange={evento=>alterarTelefone(indice, evento.target.value)}></input>
+                        <button type="button" onClick={(() => removerTelefone)}>➖</button>
+                        </>)}
+                        <button type="button" onClick={adicionarTelefone}>➕</button>
+                    </label>
                     <br />
                     <br />
                 </div>
                 <button type="submit">Salvar</button>
-                <button type="button">Cancelar</button>
+                <button type="button" onClick={props.onCancelar}>Cancelar</button>
             </form>
         </>
     );

@@ -452,19 +452,34 @@
       "id": "49"
     },
     {
-      "createdAt": "2024-10-30T19:25:58.100168Z",
-      "nome": "Ricardo Figueiredo",
-      "email": "ricardo.figueiredo@example.com",
-      "telefones": [
-        "(50) 93844-8617",
-        "(68) 91442-3609"
-      ],
-      "id": "50"
-    },
-    {
       "nome": "Lucas",
       "email": "lucas@teste.com",
       "id": "FB2akoIBCbY"
+    },
+    {
+      "nome": "novo contato",
+      "email": "contato@teste",
+      "telefone": [
+        "5199999999",
+        "5199999995"
+      ],
+      "id": "i_7wAmX37po"
+    },
+    {
+      "nome": "lucas",
+      "email": "teste@lucas",
+      "telefone": [
+        "5199999"
+      ],
+      "id": "63xqrjGBmb4"
+    },
+    {
+      "nome": "Lucas",
+      "email": "lucas@teste",
+      "telefones": [
+        "51999999"
+      ],
+      "id": "tzJ_Xxh0RyQ"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"
