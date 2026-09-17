@@ -7,7 +7,7 @@ import Form from '../Form/Form.jsx'
 export default function GestaoContatos() {
   const [contatos, setContatos] = useState([]);
   const [exibirCadastro, setExibirCadastro] = useState(false)
-
+  const [exibirAlteracao, setExibirAlteracao] = useState(false)
 
   async function carregarContatos() {
     let retorno = await axios.get('http://localhost:3000/contatos');

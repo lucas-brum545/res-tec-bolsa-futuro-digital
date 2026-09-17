@@ -455,31 +455,6 @@
       "nome": "Lucas",
       "email": "lucas@teste.com",
       "id": "FB2akoIBCbY"
-    },
-    {
-      "nome": "novo contato",
-      "email": "contato@teste",
-      "telefone": [
-        "5199999999",
-        "5199999995"
-      ],
-      "id": "i_7wAmX37po"
-    },
-    {
-      "nome": "lucas",
-      "email": "teste@lucas",
-      "telefone": [
-        "5199999"
-      ],
-      "id": "63xqrjGBmb4"
-    },
-    {
-      "nome": "Lucas",
-      "email": "lucas@teste",
-      "telefones": [
-        "51999999"
-      ],
-      "id": "tzJ_Xxh0RyQ"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"

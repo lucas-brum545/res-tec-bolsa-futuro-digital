@@ -1,0 +1,9 @@
+PROJETO ALUNOS
+
+estilizacao (UX)
+    - bootstrap
+    - tailwind css
+    - react bootstrap
+    - material UI
+    - rocketseat.com
+    - site SPA (single page application)
