@@ -31,9 +31,11 @@ export default function GestaoContatos() {
     carregarContatos()
   }
 
-  // funcao que altera o contato se baseando pelo id
+  // funcao que altera o contato armazenado em JSON baseando-se no id
   function iniciarEdicao(id){
-    let retorno = axios.get("http://localhost:3000/contatos/"+id)
+    let retorno = axios.get("http://localhost:3000/contatos/"+id
+    
+    
     
   }
 
