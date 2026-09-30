@@ -16,7 +16,7 @@ export default function Menu(){
     ]
 
     return <>
-        <AppBar position="static">
+        <AppBar position="static" sx={{color:'purple'}}>
             <Toolbar disableGutters>
                 <IconButton component={Link} to="/">
                     <School fontSize="large" sx={{color:"white"}}></School>
