@@ -1,6 +1,7 @@
 // use effect busca os alunos apenas uma vez
 import { useEffect, useState } from 'react'
-import { Typography } from '@mui/material'
+import { Box, IconButton, InputAdornment, Stack, TextField, Typography } from '@mui/material'
+import SearchIcon from '@mui/icons-material/Search';
 import api from '../../services/api'
 import Tabela from './Tabela'
 import DialogAlunos from './DialogAlunos'
@@ -12,11 +13,19 @@ export default function Alunos(){
     const [pagina, setPagina] = useState(1)
     const [exibirDialogAluno, setExibirDialogAluno] = useState(false)
     const [alunoParaEditar, setAlunoParaEditar] = useState(null)
-
-
+    const [textoPesquisa, setTextoPesquisa] = useState("")
 
     async function buscarAlunos(){
-        let retorno = await api.get("/alunos/?_page=" + pagina + "&_per_page=10")
+        let params = {
+            _page:pagina,
+            _per_page:10
+        }
+
+        if(textoPesquisa){
+            params["nome:contains"]=textoPesquisa
+        }
+
+        let retorno = await api.get("/alunos/", {params: params})
         let paginaEAlunos = retorno.data
         let alunosBanco = paginaEAlunos.data
         let paginas = paginaEAlunos.pages
@@ -24,10 +33,9 @@ export default function Alunos(){
         setAlunos(alunosBanco)
     }
 
-    useEffect(
-        ()=>{
+    useEffect(()=>{
             buscarAlunos();
-        }, [pagina])
+        }, [pagina, textoPesquisa])
 
     function mudarPagina(novaPagina){
         setPagina(novaPagina)
@@ -62,6 +70,11 @@ export default function Alunos(){
         setExibirDialogAluno(true)
     }
 
+    function enviarPesquisa(formData){
+        setTextoPesquisa(formData.get("pesquisa"))
+    }
+
+
     return <Paper sx={{pl:2, pt:1, mt:1}}>
         <Typography variant='h3' align='center'>
             Gestão de Alunos
@@ -75,14 +88,38 @@ export default function Alunos(){
             onCancelar={()=>{setExibirDialogAluno(false)
                 setAlunoParaEditar(null)}}
         />}
+        <Stack direction={"row"} sx={{justifyContent:"space-between", pr:4}}>
         <Button onClick={()=>setExibirDialogAluno(true)}>
             Cadastrar novo aluno
         </Button>
+
+                    
+            <form action={enviarPesquisa}>
+                <TextField sx={{ width: '400px' }}
+                    label="Pesquisar"
+                    name="pesquisa"
+                    slotProps={
+                        {
+                            input: {
+                                endAdornment: <InputAdornment position='end'>
+                                    <IconButton type='submit'>
+                                        <SearchIcon></SearchIcon>
+                                    </IconButton>
+                                </InputAdornment>
+                            }
+                        }
+                    }
+                ></TextField>
+            </form>
+
+        </Stack>
+
         <Tabela alunos={alunos}
-        onMudarPagina={mudarPagina}
-        onExcluir={excluir}
-        onEditar={iniciarEdicao}
-        pagina={pagina}
-        totalPaginas={totalPaginas}></Tabela>
+            onMudarPagina={mudarPagina}
+            onExcluir={excluir}
+            onEditar={iniciarEdicao}
+            pagina={pagina}
+            totalPaginas={totalPaginas}>
+        </Tabela>
     </Paper>
 }

@@ -104,6 +104,20 @@
       "email": "renata.barbosa@email.com",
       "cpf": "65789012345",
       "dataNascimento": "2002-08-06"
+    },
+    {
+      "nome": "fulano",
+      "email": "fulano@email",
+      "cpf": "113210983219",
+      "dataNascimento": "2026-10-14",
+      "id": "dBgzzqBd1wQ"
+    },
+    {
+      "nome": "fulano",
+      "email": "fulano@email",
+      "cpf": "113210983219",
+      "dataNascimento": "2026-10-14",
+      "id": "6-dsGuiXj-M"
     }
   ],
   "disciplinas": [
@@ -136,6 +150,11 @@
       "id": "6",
       "nome": "Engenharia de Software",
       "cargaHoraria": 40
+    },
+    {
+      "nome": "Fundamentos de Computação Gráfica",
+      "cargaHoraria": "90",
+      "id": "98mqplguzbA"
     }
   ],
   "turmas": [
