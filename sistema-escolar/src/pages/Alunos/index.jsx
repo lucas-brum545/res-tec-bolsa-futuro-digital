@@ -44,7 +44,7 @@ export default function Alunos(){
     async function enviar(aluno){ {/* interacao com banco de dados sempre ASSINCRONA, por isso o async */}
         if(aluno.id){
             // atualizar
-            let retorno = await api.put(`/alunos/${id}`, aluno)
+            let retorno = await api.put(`/alunos/${aluno.id}`, aluno)
             setAlunoParaEditar(null)
         }
         else{

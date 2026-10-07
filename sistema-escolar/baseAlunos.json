@@ -50,11 +50,11 @@
       "dataNascimento": "2003-04-27"
     },
     {
-      "id": "8",
-      "nome": "Henrique Alves",
+      "nome": "Henrique Alves Souza",
       "email": "henrique.alves@email.com",
       "cpf": "89012345678",
-      "dataNascimento": "2002-09-14"
+      "dataNascimento": "2002-09-14",
+      "id": "8"
     },
     {
       "id": "9",
@@ -113,11 +113,18 @@
       "id": "dBgzzqBd1wQ"
     },
     {
-      "nome": "fulano",
-      "email": "fulano@email",
-      "cpf": "113210983219",
-      "dataNascimento": "2026-10-14",
-      "id": "6-dsGuiXj-M"
+      "nome": "fulano2",
+      "email": "fulano2@gmail.com",
+      "cpf": "111111111111111",
+      "dataNascimento": "1998-09-10",
+      "id": "bSMgTrZEkjU"
+    },
+    {
+      "nome": "Henrique Alves Souza",
+      "email": "henrique.alves@email.com",
+      "cpf": "89012345678",
+      "dataNascimento": "2002-09-14",
+      "id": "2egq-y2oI74"
     }
   ],
   "disciplinas": [
@@ -155,6 +162,16 @@
       "nome": "Fundamentos de Computação Gráfica",
       "cargaHoraria": "90",
       "id": "98mqplguzbA"
+    },
+    {
+      "nome": "disciplina",
+      "cargaHoraria": "20",
+      "id": "4ZcgbQ3PtTY"
+    },
+    {
+      "nome": "disciplina2",
+      "cargaHoraria": "20",
+      "id": "b7Vp54JYNWg"
     }
   ],
   "turmas": [
@@ -185,13 +202,6 @@
       "disciplinaId": 3,
       "ano": 2026,
       "semestre": 2
-    },
-    {
-      "id": "5",
-      "nome": "Programação Orientada a Objetos - Turma A",
-      "disciplinaId": 4,
-      "ano": 2026,
-      "semestre": 1
     },
     {
       "id": "6",
