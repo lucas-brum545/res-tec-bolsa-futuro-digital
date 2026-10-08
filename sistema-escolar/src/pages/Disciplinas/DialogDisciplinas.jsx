@@ -17,6 +17,7 @@ export default function DialogDisciplinas(props){
     return(
         <>
             <Dialog open fullWidth maxWidth="sm">
+                {/* formulario nao controlado */}
                 <form action={enviar}>
                     <DialogTitle align="center" style={{fontWeight:'bold'}}>
                         {props.disciplinaParaEditar?`Editar Disciplina ID: ${props.disciplinaParaEditar.id}`:"Cadastrar nova disciplina"}

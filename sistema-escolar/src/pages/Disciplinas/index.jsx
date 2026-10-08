@@ -50,7 +50,6 @@ export default function Disciplinas(){
             let retorno = await api.post(`/disciplinas/`, disciplina)
         }
 
-        let retorno = await api.post("/disciplinas/", disciplina)
         setExibirDialogDisciplina(false)
         buscarDisciplinas() // atualiza os dados
     }

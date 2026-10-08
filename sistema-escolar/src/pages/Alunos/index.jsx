@@ -52,7 +52,7 @@ export default function Alunos(){
             let retorno = await api.post(`/alunos/`, aluno)
         }
 
-        let retorno = await api.post("/alunos/", aluno)
+        
         setExibirDialogAluno(false)
         buscarAlunos() // atualiza os dados
     }

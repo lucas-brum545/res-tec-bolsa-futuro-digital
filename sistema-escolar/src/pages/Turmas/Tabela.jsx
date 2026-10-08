@@ -43,10 +43,10 @@ export default function Tabela(props){
                             <IconButton onClick={()=>setTurmaParaExcluir(turma)}>
                                 <DeleteOutlineOutlinedIcon color="error"></DeleteOutlineOutlinedIcon>
                             </IconButton>
-                            <IconButton>
+                            <IconButton onClick={()=>props.onEditarTurma(turma.id)}>
                                 <EditOutlinedIcon color="primary"/>
                             </IconButton>
-                            <IconButton>
+                            <IconButton onClick={()=>props.onEditarMatriculas(turma.id)}>
                                 <GroupOutlinedIcon color="secondary"/>
                             </IconButton>
                         </TableCell>
@@ -59,7 +59,7 @@ export default function Tabela(props){
                         <Pagination
                             page={props.pagina}
                             count={props.totalPaginas}
-                            onMudar={(evento, novaPagina)=>props.onMudarPagina(novaPagina)}
+                            onChange={(evento, novaPagina)=>props.onMudarPagina(novaPagina)}
                         />
                     </TableCell>
                 </TableRow>
