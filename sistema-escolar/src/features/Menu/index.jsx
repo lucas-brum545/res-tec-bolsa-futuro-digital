@@ -1,8 +1,11 @@
-import { AppBar, Toolbar, IconButton, Typography, Button, Box } from "@mui/material"
+import { AppBar, Toolbar, IconButton, Typography, Button, Box, Menu as MenuMaterial, MenuItem } from "@mui/material"
 import { School } from "@mui/icons-material"
-import { Link } from "react-router"
+import { Link, useNavigate } from "react-router"
+import AccountCircleOutlinedIcon from '@mui/icons-material/AccountCircleOutlined';
+import { useState } from "react";
+import api from '../../services/api'
 
-export default function Menu(){
+export default function Menu(props){
     const paginas = [
         {
             rotulo:'Alunos', local:'/alunos'
@@ -14,10 +17,22 @@ export default function Menu(){
             rotulo:'Turmas', local:'/turmas'
         }
     ]
+    const [ancoraMenu, setAncoraMenu] = useState(null)
+    const navegador = useNavigate()
+
+    function menuUsuario(evento){
+        setAncoraMenu(evento.currentTarget)
+    }
+
+    async function logout(){
+        await api.post("/auth/logout")
+        setAncoraMenu(null)
+        navegador("/")
+    }
 
     return <>
         <AppBar position="static" sx={{color:'purple'}}>
-            <Toolbar disableGutters>
+            <Toolbar disableGutters sx={{display:"flex", justifyContent:"space-between"}}>
                 <IconButton component={Link} to="/">
                     <School fontSize="large" sx={{color:"white"}}></School>
                     </IconButton>
@@ -25,7 +40,7 @@ export default function Menu(){
                             Sistema de Gestão Escolar
                         </Typography>
                         <Box sx={{display:"flex", flexGrow:0.7, justifyContent:"space-evenly"}}>
-                            {paginas.map(pagina =>
+                            {props.usuario && paginas.map(pagina =>
                             <Button component={Link} to={pagina.local} variant="text" size="large" sx={{color:"white"}}>
                             <Typography variant="h5" sx={{color:"white", textTransform:"none"}}>
                                 {pagina.rotulo}
@@ -33,6 +48,17 @@ export default function Menu(){
                             </Button>
                             )}
                         </Box>
+                        {props.usuario?<>
+                        <IconButton onClick={menuUsuario}><AccountCircleOutlinedIcon fontSize="large">  
+                        </AccountCircleOutlinedIcon></IconButton>
+                        <MenuMaterial open={Boolean(ancoraMenu)} anchorEl={ancoraMenu} onClose={()=>setAncoraMenu(null)}>
+                                <MenuItem onClick={logout}>
+                                    Logout
+                                </MenuItem>
+                            </MenuMaterial> 
+                        </>:
+                        <Button onClick={()=>navegador("/login")} sx={{color:"white"}}>Login</Button>
+                        } 
             </Toolbar>
         </AppBar>
     </>

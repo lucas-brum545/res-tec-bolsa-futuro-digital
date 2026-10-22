@@ -2393,5 +2393,12 @@
       "id": "ihObSTGSnPo"
     }
   ],
+  "users": [
+    {
+      "username": "lucas",
+      "password": "$2b$10$6PwGT02xpRfHLHZIEatgGOsB5VJJKHcpKJ7QYEKzVgt4xEfv3VNL6",
+      "id": "sx41_hUHl80"
+    }
+  ],
   "$schema": "./node_modules/json-server/schema.json"
 }
