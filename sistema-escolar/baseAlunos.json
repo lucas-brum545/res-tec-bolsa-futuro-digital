@@ -2094,11 +2094,11 @@
       "dataNascimento": "2006-11-15"
     },
     {
-      "id": "XaJuyFtpOnW",
-      "nome": "André Campos Moreira",
-      "email": "andre.campos.moreira@email.com",
-      "cpf": "80000000284",
-      "dataNascimento": "2005-03-01"
+      "nome": "Tal",
+      "email": "tal@gnail.com",
+      "cpf": "919191919199",
+      "dataNascimento": "2000-01-10",
+      "id": "zgGP6oVw0mI"
     }
   ],
   "disciplinas": [
@@ -2395,9 +2395,14 @@
   ],
   "users": [
     {
+      "id": "sx41_hUHl80",
       "username": "lucas",
-      "password": "$2b$10$6PwGT02xpRfHLHZIEatgGOsB5VJJKHcpKJ7QYEKzVgt4xEfv3VNL6",
-      "id": "sx41_hUHl80"
+      "password": "$2b$10$6PwGT02xpRfHLHZIEatgGOsB5VJJKHcpKJ7QYEKzVgt4xEfv3VNL6"
+    },
+    {
+      "id": "nL6grwCQ1YQ",
+      "username": "lucas2",
+      "password": "lucas"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"
