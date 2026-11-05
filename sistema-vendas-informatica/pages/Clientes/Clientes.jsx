@@ -29,6 +29,7 @@ export default function Clientes(){
         try {
             if (clienteParaEditar) {
                 await api.put(`/clientes/${clienteParaEditar.id}`, cliente);
+                setClienteParaEditar(null)
             }
             else {
                 await api.post('/clientes', cliente);
@@ -52,12 +53,6 @@ export default function Clientes(){
         }
     }
 
-    async function editar(cliente) {
-        let retorno = await api.get(`/clientes/${cliente.id}`);
-        setClienteParaEditar(retorno.data);
-        setExibirDialog(true);
-    }
-
 
     return (
         <>
@@ -66,9 +61,9 @@ export default function Clientes(){
         onFechar={() => setExibirDialog(false)} />)}
         <h1><GroupsRoundedIcon sx={{paddingRight: '7px'}}/>Gerenciamento de clientes</h1>
         <Stack direction="row" spacing={2} sx={{marginBottom: '10px'}}>
-            <Button variant="contained" color="primary" onClick={() => setExibirDialog(true)}>Adicionar Cliente</Button>
+            <Button variant="contained" color="primary" onClick={() => setExibirDialog(true)}>Adicionar Novo Cliente</Button>
         </Stack>
-        <Tabela clientes={clientes} onEditar={editar} onDeletar={deletar}/>
+        <Tabela clientes={clientes} onEditar={enviar} onDeletar={deletar}/>
         </>
     )
 }

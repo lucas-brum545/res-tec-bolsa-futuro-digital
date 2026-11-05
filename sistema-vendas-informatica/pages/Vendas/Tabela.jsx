@@ -3,37 +3,35 @@ import DeleteOutlineOutlinedIcon from '@mui/icons-material/DeleteOutlineOutlined
 import EditOutlinedIcon from '@mui/icons-material/EditOutlined';
 import { useState } from "react";
 
-export default function Tabela({data, columns, onEdit, onDelete}) {
-    const [produtoParaEditar, setProdutoParaEditar] = useState(null);
-    const [produtoParaDeletar, setProdutoParaDeletar] = useState(null);
+export default function Tabela(props) {
+    const [vendaParaEditar, setVendaParaEditar] = useState(null)
+    const [vendaParaDeletar, setVendaParaDeletar] = useState(null)
+    console.log(props.vendas)
 
     return(
         <>
-        {produtoParaDeletar && (
-            <DialogVendas/>
-        )}
         <Table>
             <TableHead>
                 <TableRow>
                     <TableCell>ID</TableCell>
-                    <TableCell>Nome</TableCell>
-                    <TableCell>Valor</TableCell>
-                    <TableCell>Estoque</TableCell>
+                    <TableCell>ID do Cliente</TableCell>
+                    <TableCell>Produtos</TableCell>
+                    <TableCell>Data</TableCell>
                     <TableCell>Ações</TableCell>
                 </TableRow>
             </TableHead>
             <TableBody>
-                {data.map((row) => (
+                {props.vendas.map((row) => (
                     <TableRow key={row.id}>
                         <TableCell>{row.id}</TableCell>
-                        <TableCell>{row.nome}</TableCell>
-                        <TableCell>{row.valor}</TableCell>
-                        <TableCell>{row.estoque}</TableCell>
+                        <TableCell>{row.idCliente}</TableCell>
+                        <TableCell>{row.produtos.map((prod) => {prod.idProduto},)}</TableCell>
+                        <TableCell>{row.data}</TableCell>
                         <TableCell>
-                            <IconButton onClick={() => setProdutoParaEditar(row)}>
+                            <IconButton onClick={() => setVendaParaEditar(row)}>
                                 <EditOutlinedIcon />
                             </IconButton>
-                            <IconButton onClick={() => setProdutoParaDeletar(row)}>
+                            <IconButton onClick={() => setVendaParaDeletar(row)}>
                                 <DeleteOutlineOutlinedIcon />
                             </IconButton>
                         </TableCell>

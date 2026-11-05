@@ -5,10 +5,11 @@ import Menu from "../../components/Menu/Menu";
 import Produtos from "../Produtos/Produtos";
 import Clientes from "../Clientes/Clientes";
 import Vendas from "../Vendas/Vendas";
-import { LinearProgress } from "@mui/material";
-import api from "../../services/api"; // <-- CORREÇÃO 1: Importando o api que faltava
+import { LinearProgress, Paper } from "@mui/material";
+import api from "../../services/api";
 
 function RotaSegura({ usuario }) {
+    console.log("Rota segura");
     if (usuario) {
         return <Outlet />;
     } else {
@@ -40,27 +41,20 @@ export default function Principal() {
     if (carregando) {
         return <LinearProgress color="secondary" sx={{ width: '100%' }} />;
     }
+   
+    console.log("aqui");
 
-    if (!usuario) {
-        return (
-            <Routes>
-                <Route path="/" element={<Login />} />
-                <Route path="/login/*" element={<Login />} />
-            </Routes>
-        );
-    }
-
-    return (
-        <Menu usuario={usuario}>
+    return (<>
+        <Menu usuario={usuario} />
             <Routes>
                 <Route element={<RotaSegura usuario={usuario} />}>
                     <Route path="/produtos" element={<Produtos />} />
                     <Route path="/clientes" element={<Clientes />} />
                     <Route path="/vendas" element={<Vendas />} />
+                    <Route path="/" element={<Paper></Paper>}/>
                 </Route>
                 <Route path="/login" element={<Login />} />
-                <Route path="/" element={<Login />} />
             </Routes>
-        </Menu>
+        </>
     );
 }

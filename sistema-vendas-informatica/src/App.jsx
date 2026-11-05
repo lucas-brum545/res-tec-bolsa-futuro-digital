@@ -1,4 +1,6 @@
-import '@fontsource/nunito'
+import "@fontsource/nunito"; // Defaults to weight 400
+import "@fontsource/nunito/400.css"; // Specify weight
+import "@fontsource/nunito/400-italic.css"; // Specify weight and style
 import { BrowserRouter } from 'react-router'
 import { LocalizationProvider } from '@mui/x-date-pickers';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';

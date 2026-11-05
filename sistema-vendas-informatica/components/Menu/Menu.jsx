@@ -10,6 +10,7 @@ import { Box, Button, ButtonGroup, Stack } from "@mui/material";
 import StorefrontRoundedIcon from '@mui/icons-material/StorefrontRounded';
 import GroupsRoundedIcon from '@mui/icons-material/GroupsRounded';
 import ShoppingBagRoundedIcon from '@mui/icons-material/ShoppingBagRounded';
+import api from "../../services/api";
 
 const buttons = [
     <Button><StorefrontRoundedIcon sx={{paddingRight:'7px'}}/>Produtos</Button>,
@@ -54,8 +55,6 @@ export default function Menu(props){
     const [value, setValue] = React.useState(0);
     const navegador = useNavigate();
 
-    console.error("Menu renderizado com usuário:", props.usuario);
-
     const handleChange = (event, newValue) => {
         setValue(newValue);
     };
@@ -76,12 +75,13 @@ export default function Menu(props){
         <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '10px 20px', bgcolor: 'primary.main', color: 'white' }}>
             <h1 sx={{ display: 'flex', justifyContent: 'center' }}>SISTEMA DE VENDAS</h1>
             <Stack direction='row' spacing={2} sx={{ display: 'flex', alignItems: 'center' }}>
-                <h2>Olá, {props.usuario.nome}</h2>
+                <h2>Olá, {props.usuario.username.toUpperCase()}</h2>
                 <p>Selecione uma das opções abaixo para começar.</p>
             </Stack>
-            <ButtonGroup variant="contained" aria-label="outlined primary button group">
-                <Button onClick={logout}>Sair</Button>
-            </ButtonGroup>
+            {/* <ButtonGroup variant="contained" aria-label="outlined primary button group"> */}
+                <Button onClick={logout} sx={{backgroundColor:'red', fontWeight:'bold', color:'white'
+                }}>Sair</Button>
+            {/* </ButtonGroup> */}
         </Box>
         <Box sx={{ borderBottom: 1, borderColor: 'divider', display: 'flex', justifyContent: 'center', alignItems: 'center', paddingTop: '20px' }}>
             <Tabs value={value} onChange={handleChange} aria-label="basic tabs example">

@@ -1,21 +1,24 @@
 import { Alert, Button, Dialog, DialogActions, DialogContent, DialogTitle, Menu, Stack, TextField } from '@mui/material'
 import { useState } from 'react'
 import { useNavigate } from 'react-router';
+import api from '../../services/api'
 
 export default function Login(){
     const navegador = useNavigate();
     const [mensagem, setMensagem] = useState('')
 
     async function logar(formData){
+        console.log('chegou aqui')
         let login = {
-            username: formData.get('usuario'),
-            password: formData.get('senha')
+            username: formData.get('username'),
+            password: formData.get('password')
         }
 
         try{
             await api.post("/auth/login", login)
             setMensagem('')
             navegador("/")
+            console.log('chegou aqui tbm')
         }catch(error){
             setMensagem(error.response?.data?.mensagem || "Erro ao efetuar login. Tente novamente.")
         }

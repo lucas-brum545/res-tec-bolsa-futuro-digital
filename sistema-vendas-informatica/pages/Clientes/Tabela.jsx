@@ -2,6 +2,7 @@ import { Table, TableHead, TableRow, TableCell, TableBody, TableFooter, Paginati
 import DeleteOutlineOutlinedIcon from '@mui/icons-material/DeleteOutlineOutlined';
 import EditOutlinedIcon from '@mui/icons-material/EditOutlined';
 import { useState } from "react";
+import DialogClientes from "./DialogClientes";
 
 export default function Tabela(props) {
     const [clienteParaEditar, setClienteParaEditar] = useState(null);

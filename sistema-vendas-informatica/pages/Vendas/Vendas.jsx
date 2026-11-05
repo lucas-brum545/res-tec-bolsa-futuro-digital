@@ -1,8 +1,9 @@
 import StorefrontRoundedIcon from '@mui/icons-material/StorefrontRounded';
 import { useState, useEffect } from "react";
+import DialogVendas from './DialogVendas';
 import api from "../../services/api";
 import Tabela from "./Tabela";
-import { Button, Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle } from "@mui/material";
+import { Button, Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle, Stack } from "@mui/material";
 
 export default function Vendas(){
     const [vendas, setVendas] = useState([]);
@@ -55,7 +56,18 @@ export default function Vendas(){
     }
     
     return (
+        <>
+        {exibirDialog && (<DialogVendas
+            venda={vendaParaEditar}
+            onEnviar={enviar}
+            onFechar={()=>setExibirDialog(false)}
+        />
+        )}
         <h1><StorefrontRoundedIcon sx={{paddingRight: '7px'}}/>Gerenciamento de vendas</h1>
-
+        <Stack direction="row" spacing={2} sx={{marginBottom: '10px'}}>
+            <Button variant='contained' color='primary' onClick={()=>setExibirDialog(true)}>Efetuar Nova Venda</Button>
+        </Stack>
+        <Tabela vendas={vendas} onEditar={enviar} onDeletar={deletar}/>
+        </>
     )
 }
