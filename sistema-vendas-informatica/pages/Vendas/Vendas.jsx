@@ -13,8 +13,30 @@ export default function Vendas(){
     async function buscarVendas() {
         try {
             const retorno = await api.get('/vendas');
-            const data = retorno.data;
-            setVendas(data);
+            let vendas = retorno.data;
+            vendas = vendas.map(async venda=>{
+                let retorno = await api.get(`/clientes/${venda.idCliente}`)
+                let cliente = retorno.data
+                venda.nomeCliente = cliente.nome
+                // para cada id produto de venda.produtos resgatar seu nome
+                venda.compras = []
+                for(let i=0; i<venda.produtos.length;i++){
+                    retorno = await api.get(`/produtos/${venda.produtos[i].idProduto}`)
+                    let produto = retorno.data
+                    let compra = {
+                            nomeProduto: produto.nome,
+                            quantidadeCompra: venda.produtos[i].quantidade
+                    }
+                    venda.compras.push(compra)
+                    
+                }
+            return venda
+            })
+            console.log("vendas")
+            console.log(vendas)
+            vendas = await Promise.all(vendas)
+            console.log(vendas)
+            setVendas(vendas);
         } catch (error) {
             console.error('Erro ao buscar vendas:', error);
         }

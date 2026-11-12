@@ -6,7 +6,7 @@ import { useState } from "react";
 export default function Tabela(props) {
     const [vendaParaEditar, setVendaParaEditar] = useState(null)
     const [vendaParaDeletar, setVendaParaDeletar] = useState(null)
-    console.log(props.vendas)
+    
 
     return(
         <>
@@ -14,7 +14,7 @@ export default function Tabela(props) {
             <TableHead>
                 <TableRow>
                     <TableCell>ID</TableCell>
-                    <TableCell>ID do Cliente</TableCell>
+                    <TableCell>Nome do Cliente</TableCell>
                     <TableCell>Produtos</TableCell>
                     <TableCell>Data</TableCell>
                     <TableCell>Ações</TableCell>
@@ -24,8 +24,8 @@ export default function Tabela(props) {
                 {props.vendas.map((row) => (
                     <TableRow key={row.id}>
                         <TableCell>{row.id}</TableCell>
-                        <TableCell>{row.idCliente}</TableCell>
-                        <TableCell>{row.produtos.map((prod) => {prod.idProduto},)}</TableCell>
+                        <TableCell>{row.nomeCliente}</TableCell>
+                        <TableCell>{row.compras}</TableCell>
                         <TableCell>{row.data}</TableCell>
                         <TableCell>
                             <IconButton onClick={() => setVendaParaEditar(row)}>
