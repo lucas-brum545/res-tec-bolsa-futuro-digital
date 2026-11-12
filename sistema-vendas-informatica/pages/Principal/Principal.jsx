@@ -9,7 +9,6 @@ import { LinearProgress, Paper } from "@mui/material";
 import api from "../../services/api";
 
 function RotaSegura({ usuario }) {
-    console.log("Rota segura");
     if (usuario) {
         return <Outlet />;
     } else {
@@ -39,10 +38,8 @@ export default function Principal() {
     }, [local.pathname]);
 
     if (carregando) {
-        return <LinearProgress color="secondary" sx={{ width: '100%' }} />;
+        return <LinearProgress color="primary" sx={{ width: '100%' }} />;
     }
-   
-    console.log("aqui");
 
     return (<>
         <Menu usuario={usuario} />
@@ -51,9 +48,9 @@ export default function Principal() {
                     <Route path="/produtos" element={<Produtos />} />
                     <Route path="/clientes" element={<Clientes />} />
                     <Route path="/vendas" element={<Vendas />} />
-                    <Route path="/" element={<Paper></Paper>}/>
+                    <Route path="/" element={<></>} />
                 </Route>
-                <Route path="/login" element={<Login />} />
+                <Route path="/login" element={usuario ? <Navigate to="/" replace /> : <Login />} />
             </Routes>
         </>
     );

@@ -66,7 +66,7 @@ export default function Menu(props){
     async function logout(){
         await api.post("/auth/logout")
         setAncoraMenu(null)
-        navegador("/")
+        navegador("/login")
     }
 
     return (<>        
